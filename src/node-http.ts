@@ -19,22 +19,19 @@ const getUri = (req: IncomingMessage, uriOptions: UriOptions): string => {
   }
 
   if (uriOptions === 'forwarded') {
-    const missingHeaders = ['x-forwarded-proto', 'x-forwarded-host', 'x-forwarded-port'].filter(
-      (header) => !req.headers[header],
+    const headers = Object.fromEntries(
+      ['x-forwarded-proto', 'x-forwarded-host', 'x-forwarded-port'].map((name) => [name, req.headers[name]]),
     );
 
-    if (missingHeaders.length > 0) {
+    const missingHeaders = Object.keys(headers).filter((name) => !headers[name]);
+
+    if (missingHeaders.length) {
       throw new Error(`Missing "${missingHeaders.join('", "')}" header(s).`);
     }
 
-    return (
-      req.headers['x-forwarded-proto'] +
-      '://' +
-      req.headers['x-forwarded-host'] +
-      ':' +
-      req.headers['x-forwarded-port'] +
-      req.url
-    );
+    const { 'x-forwarded-proto': schema, 'x-forwarded-host': host, 'x-forwarded-port': port } = headers;
+
+    return `${schema}://${host}:${port}${req.url}`;
   }
 
   const schema = uriOptions.schema ?? 'http';

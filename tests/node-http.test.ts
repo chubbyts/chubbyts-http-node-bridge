@@ -226,7 +226,9 @@ describe('http-node', () => {
       const req = {
         method: 'get',
         url: '/api?key=value',
-        headers: {},
+        headers: {
+          'x-forwarded-proto': 'https',
+        },
         httpVersion: '1.1',
       } as unknown as IncomingMessage;
 
@@ -243,7 +245,7 @@ describe('http-node', () => {
 
       expect(() => {
         nodeToServerRequestFactory(req);
-      }).toThrow('Missing "x-forwarded-proto", "x-forwarded-host", "x-forwarded-port" header(s).');
+      }).toThrow('Missing "x-forwarded-host", "x-forwarded-port" header(s).');
 
       expect(serverRequestFactory).toHaveBeenCalledTimes(0);
       expect(uriFactory).toHaveBeenCalledTimes(0);
