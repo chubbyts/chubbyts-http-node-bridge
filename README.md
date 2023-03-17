@@ -24,7 +24,7 @@ A node req/res http bridge.
 ## Requirements
 
  * node: 14
- * [@chubbyts/chubbyts-http-types][2]: ^1.0.0
+ * [@chubbyts/chubbyts-http-types][2]: ^1.0.1
 
 ## Installation
 
