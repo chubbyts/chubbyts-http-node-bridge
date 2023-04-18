@@ -1,6 +1,6 @@
-import { IncomingMessage, ServerResponse } from 'http';
-import { Method, Response, ServerRequest } from '@chubbyts/chubbyts-http-types/dist/message';
-import {
+import type { IncomingMessage, ServerResponse } from 'http';
+import type { Method, Response, ServerRequest } from '@chubbyts/chubbyts-http-types/dist/message';
+import type {
   ServerRequestFactory,
   StreamFromResourceFactory,
   UriFactory,
