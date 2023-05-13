@@ -24,14 +24,14 @@ A node req/res http bridge.
 ## Requirements
 
  * node: 16
- * [@chubbyts/chubbyts-http-types][2]: ^1.0.1
+ * [@chubbyts/chubbyts-http-types][2]: ^1.1.0
 
 ## Installation
 
 Through [NPM](https://www.npmjs.com) as [@chubbyts/chubbyts-node-http-bridge][1].
 
 ```ts
-npm i @chubbyts/chubbyts-node-http-bridge@^1.0.2
+npm i @chubbyts/chubbyts-node-http-bridge@^1.1.0
 ```
 
 ## Usage
