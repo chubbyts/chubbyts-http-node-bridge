@@ -23,15 +23,15 @@ A node req/res http bridge.
 
 ## Requirements
 
- * node: 16
- * [@chubbyts/chubbyts-http-types][2]: ^1.2.3
+ * node: 18
+ * [@chubbyts/chubbyts-http-types][2]: ^1.3.0
 
 ## Installation
 
 Through [NPM](https://www.npmjs.com) as [@chubbyts/chubbyts-http-node-bridge][1].
 
 ```ts
-npm i @chubbyts/chubbyts-http-node-bridge@^1.2.0
+npm i @chubbyts/chubbyts-http-node-bridge@^1.3.0
 ```
 
 ## Usage
@@ -69,7 +69,7 @@ server.listen(port, host, () => {
 
 ## Copyright
 
-2024 Dominik Zogg
+2025 Dominik Zogg
 
 [1]: https://www.npmjs.com/package/@chubbyts/chubbyts-http-node-bridge
 [2]: https://www.npmjs.com/package/@chubbyts/chubbyts-http-types
