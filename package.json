@@ -1,7 +1,7 @@
 {
   "name": "@chubbyts/chubbyts-http-node-bridge",
   "type": "module",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "A node req/res http bridge.",
   "keywords": [
     "chubbyts",

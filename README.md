@@ -31,7 +31,7 @@ A node req/res http bridge.
 Through [NPM](https://www.npmjs.com) as [@chubbyts/chubbyts-http-node-bridge][1].
 
 ```ts
-npm i @chubbyts/chubbyts-http-node-bridge@^1.3.1
+npm i @chubbyts/chubbyts-http-node-bridge@^1.3.2
 ```
 
 ## Usage
@@ -42,8 +42,20 @@ import {
   createStreamFromResourceFactory,
   createUriFactory,
 } from '@chubbyts/chubbyts-http/dist/message-factory';
-import { createServer, IncomingMessage, ServerResponse } from 'http';
+import { createServer, IncomingMessage, Server, ServerResponse } from 'http';
 import { createNodeToServerRequestFactory, createResponseToNodeEmitter } from '@chubbyts/chubbyts-http-node-bridge/dist/node-http';
+
+const shutdownServer = (server: Server) => {
+  server.close((err) => {
+    if (err) {
+      console.warn(`Shutdown server with error: ${err}`);
+      process.exit(1);
+    }
+
+    console.log('Shutdown server');
+    process.exit(0);
+  });
+};
 
 const app = ...;
 
@@ -65,6 +77,9 @@ const port = 8080;
 server.listen(port, host, () => {
   console.log(`Listening to ${host}:${port}`);
 });
+
+process.on('SIGINT', () => shutdownServer(server));
+process.on('SIGTERM', () => shutdownServer(server));
 ```
 
 ## Copyright
