@@ -31,7 +31,7 @@ A node req/res http bridge.
 Through [NPM](https://www.npmjs.com) as [@chubbyts/chubbyts-http-node-bridge][1].
 
 ```ts
-npm i @chubbyts/chubbyts-http-node-bridge@^2.0.0
+npm i @chubbyts/chubbyts-http-node-bridge@^2.0.1
 ```
 
 ## Usage
